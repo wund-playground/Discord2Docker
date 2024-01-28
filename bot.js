@@ -1,5 +1,5 @@
 require('dotenv').config({ path: '.env' })
-const servers = require('./server.json');
+const servers = require('./servers.json');
 const Discord = require('discord.js');
 const Docker  = require('dockerode');
 const os      = require('os');
