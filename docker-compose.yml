@@ -5,7 +5,5 @@ services:
     discorddocker:
         build:
             context: .
-        ports:
-            - "8004:8004"
         volumes:
-            - ./:/discordBot
+        - $DOCKER_SOCKET_PATH:/var/run/docker.sock
