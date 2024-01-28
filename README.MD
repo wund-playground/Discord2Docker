@@ -20,15 +20,16 @@ whem noone's playing.
 This is a hobby project, so don't expect much as there isn't a defined direction yet.
 
 
-# Requirements
-```
-nodejs 16
-```
 
 
 # Setup
 
-If you don't already have a Discord bot configured, you can follow this documentation:
+## Requirements
+```
+nodejs 16
+```
+
+If you don't already have a Discord bot configured, you can follow this documentation, else, go to next step:
 https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot
 
 Create a .env file in the project root directory with these env variables: (Without < >)
@@ -39,12 +40,12 @@ DOCKER_SOCKET_PATH=/var/run/docker.sock // this is the default value
 
 Open server.json with your favorite editor and modify your servers list
 ```
-	{
-		"name": "ark",
-		"requiredMemoryForServer": 12000,
-		"doMemoryCheck": false,
-		"containerName": "hello-world"
-	}
+[{
+    "name": "ark",
+    "requiredMemoryForServer": 12000,
+    "doMemoryCheck": false,
+    "containerName": "hello-world"
+}]
 ```
 |    |   |
 | ------------- | ------------- |
@@ -55,28 +56,43 @@ Open server.json with your favorite editor and modify your servers list
 |    |   |
 
 
-# ADDING EXTRA SERVERS
+## ADDING EXTRA SERVERS
 
 Add more entries in the server.json, for example:
 ```
-[	{
-		"name": "ark",
-		"requiredMemoryForServer": 12000,
-		"doMemoryCheck": false,
-		"containerName": "hello-world"
-	},
-    	{
-		"name": "ark2",
-		"requiredMemoryForServer": 12000,
-		"doMemoryCheck": false,
-		"containerName": "ark-server"
-	}
-]
+[{
+    "name": "ark",
+    "requiredMemoryForServer": 12000,
+    "doMemoryCheck": false,
+    "containerName": "hello-world"
+},
+{
+    "name": "ark2",
+    "requiredMemoryForServer": 12000,
+    "doMemoryCheck": false,
+    "containerName": "ark-server"
+}]
 ```
-You can now run `!start ark2`
+You can now run `!start ark2` after you install/rebuild/restart your bot.
 
+<br/>
 
-# COMMANDS
+# Installation
+### Running as a docker container on the same machine as the game servers containers
+- Clone this repository and run:
+
+```
+docker compose up -d --build
+```
+
+### Running standalone but on the same machine where docker is running:
+
+```
+npm install
+node bot.js
+```
+
+## COMMANDS
 
 | Command  | Description |
 | ------------- | ------------- |
@@ -85,16 +101,13 @@ You can now run `!start ark2`
 | !stop ark  | Stops ARK container  |
 
 
-# Installation
-clone this repository and:
+## Integrating with existing bot
 
-```
-docker compose up -d --build
-```
+If you already have a discord bot using discord.js, then just make sure you have dockerode and dotenv also installed (or other package dependencies mentioned in package.json)
 
-# Running outside container but on the same machine where docker is running:
+Files needed:
+- actions.js
+- .env (you can merge with your existing .env file)
+- servers.json (to read servers configs)
 
-```
-npm install
-node bot.js
-```
+You can find an integration example in bot.js
