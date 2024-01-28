@@ -25,7 +25,12 @@ This is a hobby project, so don't expect much as there isn't a defined direction
 nodejs 16
 ```
 
+
 # Setup
+
+If you don't already have a Discord bot configured, you can follow this documentation:
+https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot
+
 Create a .env file in the project root directory with these env variables: (Without < >)
 ```
 TOKEN=<Bot login token>
