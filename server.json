@@ -1,0 +1,14 @@
+[
+	{
+		"name": "ark",
+		"requiredMemoryForServer": 12000,
+		"doMemoryCheck": false,
+		"containerName": "hello-world"
+	},
+    {
+		"name": "someOtherServer",
+		"requiredMemoryForServer": 12000,
+		"doMemoryCheck": false,
+		"containerName": "someOtherServer"
+	}
+]

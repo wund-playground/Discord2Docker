@@ -1,0 +1,11 @@
+version: '3'
+   
+services:       
+    # node
+    discorddocker:
+        build:
+            context: .
+        ports:
+            - "8004:8004"
+        volumes:
+            - ./:/discordBot
