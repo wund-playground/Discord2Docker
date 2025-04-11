@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "discord.js": "^14.16.3",
-    "dockerode": "^4.0.2",
+    "dockerode": "^4.0.5",
     "dotenv": "^8.2.0"
   }
 }
